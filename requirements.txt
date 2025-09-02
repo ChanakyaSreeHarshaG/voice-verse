@@ -1,0 +1,9 @@
+Flask
+tensorflow
+SpeechRecognition
+librosa
+numpy
+scipy
+soundfile
+scikit-learn
+pandas
