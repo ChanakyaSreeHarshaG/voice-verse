@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+
+  <!-- Css codes -->
+  <title>Speech Emotion Recognition</title>
+  <link rel="stylesheet" href="{{url_for('static',filename='styles/index.css')}}">
+  <link rel="shortcut icon" href="{{url_for('static',filename='styles/img/artificial-intelligence.png')}}">
+  <link rel="stylesheet" href="{{url_for('static',filename='styles/microphone.svg')}}">
+  <link rel="stylesheet" href="{{url_for('static',filename='styles/choose_file_icon.svg')}}">
+  <style>
+    .title {
+      text-align: center;
+      font-size: 70px;
+      font-weight: bold;
+      color:#ffffff;
+      margin-top: 20px;
+    }
+
+    /* Styling for the container */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .popcontaint {
+      width: 400px !important;
+      height: 200px;
+    }
+
+    #submitButton {
+    background-color: #000000;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 50px;
+    margin-top: 16% !important;
+    margin-left: 80px;
+    text-align: center;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#p2{
+  color: #6600FF(0, 0, 0);
+}
+    
+
+  </style>
+</head>
+
+<body>
+  <div class="title">VOICE VERSE</div>
+  <div>
+    <!--icon-->>
+    <svg version="1.1" id="ai_chip" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      x="0px" y="0px" width="100%" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+
+    </svg>
+    <div>
+
+      <div class="centerdiv">
+        <a href="#modalbox">
+          <svg id="soundsIconTitle" width="64px" height="64px" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg" aria-labelledby="soundsIconTitle" stroke="#6600FF" stroke-width="1.125"
+            stroke-linecap="round" stroke-linejoin="round" color="#6600FF">
+            <title>Choose File</title>
+            <path d="M12 7L12 17" />
+            <path d="M15 10L15 14" />
+            <path d="M18 8L18 16" />
+            <path d="M21 13L21 11" />
+            <path d="M9 4L9 20" />
+            <path d="M6 9L6 15" />
+            <path d="M3 13L3 11" />
+          </svg>
+        </a>
+
+        <div id="modalbox" class="popup">
+          <div class="popcontaint">
+            <div class="hehe">
+              <form method="post" enctype="multipart/form-data">
+                <input type="file" id="choose_file" name="file" value="Choose File" />
+                <div class="hehe">
+                  <input type="submit" id="submitButton" value="predict" class="hehe" />
+                </div>
+                <a href="" class="modalclose">&times;</a>
+                <!-- <a href="/Choose_file_prediction">
+              <div id="classPredict">
+                <button  type="button" id="Predict" >Predict</button>
+              </div>
+            </a> -->
+              </form>
+            </div>
+
+            {% if prediction != "" %}
+            <p id="p2"> {{prediction_html}} </p>
+            <!-- <div id="transcript"> -->
+            <!-- </div> -->
+            {% endif %}
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</body>
+
+</html>
